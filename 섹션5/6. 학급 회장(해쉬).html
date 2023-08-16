@@ -27,8 +27,6 @@
             function solution(arr){
                 let data = new Map();
                 for(let i=0; i<=arr.length-1; i++){
-                    // if(sH.has(arr[i])) sH.set(arr[i], sH.get(arr[i])+1);
-                    // else sH.set(arr[i], 1);
                     if(data.has(arr[i])){
                         data.set(arr[i], data.get(arr[i])+1);
                     }else{
@@ -36,22 +34,16 @@
                     }
                 }
                 
-                console.log(data.get("A"))
-                console.log(data)
                 let result;
-                // for(let j=0; j<=data.size-1; j++){
-                //     console.log(j)
-                //     console.log(data[j])
-                // }
-                // for(let [key, val] of sh){
-                //     console.log([key,val])
-                //     if(val>max){
-                //         max=val;
-                //         answer=key;
-                //     }
-                // }
-                data.map((item,idx)=>{ console.log(item)})
-
+                let max = 0;
+                for(let [key, val] of data){
+                    // console.log(key + ' , ' + val)
+                    if(val > max){
+                        max = val;
+                        result = key;
+                    }
+                }
+                return result
             }
 
             console.log(solution(arr))
